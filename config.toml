@@ -1,0 +1,20 @@
+# Configuration for BioInfoAggregator
+databaseName = "bioInfoAggregator.db"
+
+[dirs]
+# Path to the DuckDB database file
+databaseDir = "./data"
+
+# Subdirectories to be created within the results directory
+resultSubDirs = [
+    #Add any result subdirectories you want here
+    #For eample, pipeline outputs
+]
+
+[dirs.results]
+# Base directory for all output results
+resDir = "results"
+
+[namingConfigs]
+# Suffix to be appended to generated filenames
+fileSuffix = "Dates.now()"

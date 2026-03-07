@@ -12,6 +12,10 @@ authors:
     affiliation: 1
   - name: Raquel Dias
     affiliation: 1
+  - name: Valerie De Crecy
+    affiliation: 1
+  - name: Yifeng Yuan
+    affiliation: 1
 affiliations:
  - name: University of Florida Department of Microbiology and Cell Science, United State
    index: 1
@@ -35,6 +39,12 @@ Modern bioinformatic analyses often draw on data from many different sources. Th
 
 Some similar tools exist such as [`BioStructures.jl`](https://biojulia.dev/BioStructures.jl/stable/) which is focused on dowloading and working with PDB files. [`BioServices.jl`](https://biojulia.dev/BioServices.jl/stable/) is a package for interfacing with the NCBI Entrez databases, NIH UMLS, and GGGEnome database. It is focused on being an interface to these specific APIs and leaves storage and organization of retrieved data to the user.[`BioFetch.jl`](https://github.com/BioJulia/BioFetch.jl) is an annotation based sequence retrieval tool for NCBI Entrez database, UniProt, and Ensembl which retruns data in either FASTA or genebank format. 
 
+## Advantages
+
+`BioInfoAggregator.jl` is generalizable, multi-purpose, and extensible. A new source can be added by defining a new `DBTableSpec` object. The table spec struct defines the table schema, name, and how data from the source should be transformed and inserted into the table. The downloader framework is also extensible. `Downloader` structs specify how to fetch data from a remote source. Single, batch, and paginated dowloaders are avaialable by default, but the abstract `Downloader` type can be extended to add functionality such as authorization, rate limiting, or retries. `BioInfoAggregator.jl` comes with built in support for fetching data from [UniProt](https://www.uniprot.org/),[Ensembl](https://www.ensembl.org), and [InterPro](https://www.ebi.ac.uk/interpro/).
+
+Beyond extensibility, `BioInfoAggregator.jl` implements a local storage database that can be used to eliminate the need to make additional API calls. The local database can also be used by other systems and processes, and is itself extensible, allowing users to add additional tables as needed, within the same database where downloaded data is stored. Using DuckDB as the database also makes the entire database a single file for portability.
+
 ## Example Use
 
 To download metadata for all members of an interpro family:
@@ -57,7 +67,7 @@ julia>
 Reading data from the local DB:
 
 ```julia
-getDBData(interproFamilyMemberDownloader)
+readDB(interproFamilyMemberDownloader)
 
 >julia
 1061×12 DataFrame
@@ -70,3 +80,7 @@ getDBData(interproFamilyMemberDownloader)
     4 │ A0A068EG07         Viral interleukin-10 homolog  unreviewed          178  {"taxId"  
     5 │ A0A068EGM0         Viral interleukin-10 homolog  unreviewed          174  {"taxId" ⋯
 ```
+
+## Skills
+
+`SKILL.md` files are included in `./skills` for loading `BioInfoAggregator.jl` from local source and for fetching UniProt data by accession ID. 
