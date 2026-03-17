@@ -73,7 +73,7 @@ results = readDB(uniprotAccessionDownloader; where="status = 'reviewed'")
 ## Core Components
 
 ### Downloaders
-All downloaders share a common interface through `fetchDownloads` and `writeData!`. They encapsulate endpoint bases, headers, formatting logic, and transformation functions.
+All downloaders share a common interface through `fetchDownloads` and `writeData!`. They encapsulate endpoint base urls, headers, formatting logic, and transformation functions.
 
 ### Database Schema
 Schemas are defined in `DBTableSpec` objects within the source files (e.g., `src/uniprot.jl`, `src/ensembl.jl`), ensuring consistency between the API response and the local database.
