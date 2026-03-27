@@ -7,14 +7,15 @@ tags:
   - DuckDB
   - SQL
   - Vector Embeddings
+  - Computational Biology
 authors:
   - name: Nick Sexson
     affiliation: 1
-  - name: Raquel Dias
+  - name: Yifeng Yuan
     affiliation: 1
   - name: Valerie De Crecy
     affiliation: 1
-  - name: Yifeng Yuan
+  - name: Raquel Dias
     affiliation: 1
 affiliations:
  - name: University of Florida Department of Microbiology and Cell Science, United State
