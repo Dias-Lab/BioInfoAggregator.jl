@@ -18,7 +18,7 @@ authors:
   - name: Raquel Dias
     affiliation: 1
 affiliations:
- - name: University of Florida Department of Microbiology and Cell Science, United State
+ - name: Department of Microbiology and Cell Science, University of Florida, Gainesville, Florida, USA
    index: 1
 date: 25 June 2025
 bibliography: paper.bib
