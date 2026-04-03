@@ -40,7 +40,7 @@ Modern bioinformatic analyses often draw on data from many different sources. Th
 
 Some similar tools exist such as [`BioStructures.jl`](https://biojulia.dev/BioStructures.jl/stable/) which is focused on dowloading and working with PDB files. [`BioServices.jl`](https://biojulia.dev/BioServices.jl/stable/) is a package for interfacing with the NCBI Entrez databases, NIH UMLS, and GGGEnome database. It is focused on being an interface to these specific APIs and leaves storage and organization of retrieved data to the user.[`BioFetch.jl`](https://github.com/BioJulia/BioFetch.jl) is an annotation based sequence retrieval tool for NCBI Entrez database, UniProt, and Ensembl which retruns data in either FASTA or genebank format. 
 
-![Flowchart](./FlowChart.png)
+![Flowchart](../FlowChart.png)
 
 ## Advantages
 
