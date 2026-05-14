@@ -27,7 +27,7 @@
 
 ```julia
 using Pkg
-Pkg.add(url="https://github.com/nas2011/BioInfoAggregator.jl")
+Pkg.add(url="https://github.com/dias-lab/BioInfoAggregator.jl")
 ```
 
 ## Quick Start
