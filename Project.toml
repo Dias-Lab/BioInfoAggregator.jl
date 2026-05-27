@@ -1,4 +1,6 @@
 name= "BioInfoAggregator"
+uuid = "be33d8c3-963d-4d99-9e81-32426d9ec665"
+version = "0.1"
 
 [deps]
 DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
