@@ -36,15 +36,26 @@ Pkg.add(url="https://github.com/dias-lab/BioInfoAggregator.jl")
 The package requires a `config.toml` in the project root to define database paths and naming conventions.
 
 ```toml
-databaseName = "bioinfo.db"
+# Configuration for BioInfoAggregator
+databaseName = "bioInfoAggregator.db"
 
 [dirs]
-databaseDir = "./data/db"
-resultDir = "./results"
-resultSubDirs = ["fasta", "plots", "tables"]
+# Path to the DuckDB database file
+databaseDir = "./data"
+
+# Subdirectories to be created within the results directory
+resultSubDirs = [
+    #Add any result subdirectories you want here
+    #For eample, pipeline outputs
+]
+
+[dirs.results]
+# Base directory for all output results
+resDir = "results"
 
 [namingConfigs]
-fileSuffix = "_agg"
+# Suffix to be appended to generated filenames
+fileSuffix = "Dates.now()"
 ```
 
 ### 2. Loading the Package
