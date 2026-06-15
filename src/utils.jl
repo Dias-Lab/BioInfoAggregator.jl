@@ -53,6 +53,9 @@ Writes data to a table based on the TableSpec defined by the downloader.
 `function writeData!(downloader::BioInfoAggregator.Downloader,data::DataFrame;db=db,onconflict::String="REPLACE")`
 """
 function writeData!(downloader::BioInfoAggregator.Downloader,data::DataFrame;db=db,onconflict::String="REPLACE")
+    schema = downloader.tableSpec.tableSchema
+    @assert occursin("IF NOT EXISTS",uppercase(schema)) "Downloader schemas must use the IF NOT EXISTS table creation construct"
+    DBInterface.execute(db,downloader.tableSpec.tableSchema)
     data = downloader.tableSpec.insertRows(downloader,data,db=db,onconflict=onconflict)
     DBInterface.execute(db,"CHECKPOINT")
     return data

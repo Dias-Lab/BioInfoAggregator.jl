@@ -78,7 +78,7 @@ data = fetchDownloads(uniprotAccessionDownloader, accessions; verbose=true)
 writeData!(uniprotAccessionDownloader, data)
 
 # Read it back
-results = readDB(uniprotAccessionDownloader; where="status = 'reviewed'")
+results = readDB(uniprotAccessionDownloader; where="status like '%UniProtKB reviewed%'")
 ```
 
 ## Core Components

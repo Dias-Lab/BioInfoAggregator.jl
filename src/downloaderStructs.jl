@@ -1,7 +1,12 @@
-@kwdef mutable struct DBTableSpec
+mutable struct DBTableSpec
     tableSchema::String
     tableName::String
     insertRows::Function
+
+    function DBTableSpec(;tableSchema::String,tableName::String,insertRows::Function) 
+        @assert occursin("IF NOT EXISTS", uppercase(tableSchema)) "Table schemas must use IF NOT EXISTS construct."
+        new(tableSchema,tableName,insertRows)
+    end
 end
 
 abstract type Downloader end
@@ -15,7 +20,7 @@ abstract type Downloader end
     ntasks::Int=Threads.nthreads()
     validate::Union{Nothing,Function}=nothing
     batchSize::Int
-  
+
 end
 
 @kwdef mutable struct PaginatedDownloader <: Downloader
