@@ -34,6 +34,7 @@ include("interpro.jl")
 include("ensembl.jl")
 include("utils.jl")
 include("embeddings.jl")
+include("alphafold.jl")
 
 
 export
@@ -79,6 +80,11 @@ export
     #interpro
     #downloaders
     interproFamilyMemberDownloader,
-    interproFamilyDownloader
+    interproFamilyDownloader,
+    #alphafold
+    #tableSpecs
+    alphafoldTableSpec,
+    #downloaders 
+    alphafoldDownloader
 
 end

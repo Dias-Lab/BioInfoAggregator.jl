@@ -141,6 +141,8 @@ This function automatically closes the `Appender` upon completion but leaves the
 `Connection` open for further use (e.g., merging the temp table into a persistent one).
 """
 function appendToTempTable!(data::DataFrame,tableName::String,con::DuckDB.Connection;db=db)
+    template = DBInterface.execute(con,"select *  from $tableName  limit 0") |> DataFrame
+    data = vcat(template,data, cols=:union)
     i = 1
     appender = DuckDB.Appender(con,tableName)
     for row in eachrow(data)

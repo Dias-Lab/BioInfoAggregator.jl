@@ -66,8 +66,22 @@ familyMembers = fetchDownloads(
 # Persist family members to the database.
 writeData!(interproFamilyMemberDownloader, familyMembers)
 
+# --- 5 Alphafold ---
+# Alphafold Metadata Fetching
+alphafoldData = fetchDownloads(
+    alphafoldDownloader,
+    exampleAccessions,
+    verbose=true
+)
 
-# --- 5. Database Inspection ---
+# Write Alphafold Metadata to database
+writeData!(alphafoldDownloader,alphafoldData)
+
+# Query Alphafold metadata
+readDB(alphafoldDownloader,where="(entry->>'\$.gene') in ('ECD','HELZ')")
+
+
+# --- 6. Database Inspection ---
 # Show the current state of our biological information aggregator.
 availableTables = aboutDB()
 

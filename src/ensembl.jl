@@ -1,6 +1,6 @@
 ensemblTableSpec = DBTableSpec(
     tableSchema = """Create table if not exists ensembl_fasta_file(
-    endemblId varchar primary key,
+    ensemblId varchar primary key,
     fasta varchar,
     )
     """,
